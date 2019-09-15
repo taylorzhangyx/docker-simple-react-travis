@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run -e CI=true taylorzhangyx/taylorreact npm run test
+
+deploy:
+  provider: elasticbeantalk
+  region: "us-west-1"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-west-1-167789202206"
+  bucket_path: "docker-react"
+  on:
+    branch: master
